@@ -109,7 +109,7 @@ def email_fill_in(from_user, server, signature, each_element):
                 attached_file = email_attach_func(each_file)
                 msg.attach(attached_file)
             except:
-                if each_file != (the_word or '' or []): # The '' is due to the comma giving an empty string, if added accidentally at the end of a path
+                if each_file != (the_word or ['']): # The '' is due to the comma giving an empty string, if added accidentally at the end of a path
                     print('The following file failed to attach..')
                     print(each_file)
                 continue # If a file fails, proceed onwards. Ignore printing the_word or ''
