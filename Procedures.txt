@@ -10,7 +10,7 @@ SMTP server service (Such as smtp.google.com), PORT (Number only), Your email, Y
 Please use the provided headers of the CSV and Excel files as guidance.
 CSV File - Will only read and process the second row. The first row, header, will be ignored.
 Excel File - Will only read and process from the second row onwards. The first row, header, will be ignored.
-The program will also need the exact Excel File Sheet name you are reading from. The intent is to have the Sheet read as the 4th sheet.
+The program will also need the exact Excel File Sheet (the tabs) name you are reading from. The intent is to have the details on whichever custom Sheet to be read, such as the 4th sheet.
 
 External Modules to install:
 Pandas (To read both Excel and CSV)

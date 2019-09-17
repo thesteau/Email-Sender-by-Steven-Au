@@ -89,8 +89,11 @@ def manual_gmail_method(mailinglist):
     wind_mail_log()
     emailing_loop_method(mailinglist)
 
-if __name__ == "__main__":
+def main():
     import Mailing_list_read as mr
     mailinglist = mr.start_prompt_with_sheets()
     manual_gmail_method(mailinglist)
+
+if __name__ == "__main__":
+    main()
     

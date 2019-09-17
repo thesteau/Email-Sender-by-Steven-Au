@@ -13,16 +13,31 @@ from email.mime.base import MIMEBase
 from email import encoders
 import Mailing_list_read as mr
 
+## global error word
+the_word = 'nothing here'
+
+def element_check(listchk, number):
+    """This is to test whter the sheets used contain the requested elements"""
+    global the_word
+    try:
+        the_element = str(listchk[number])
+    except:
+        the_element = the_word
+    return the_element
+
 def the_email_details():
     """Email detail inporter"""
+    global the_word
+
     while 1:
         each_email_detail = mr.file_inputer_csv()
-        each_email_detail = each_email_detail[0] # Quick correction
+        each_email_detail = each_email_detail[0] # Quick list correction
 
-        service = each_email_detail[0]
-        port = int(each_email_detail[1])
-        sender = each_email_detail[2]
-        your_pass = each_email_detail[3]
+        service = element_check(each_email_detail, 0)
+        port = int(element_check(each_email_detail, 1))
+        sender = element_check(each_email_detail, 2)
+        your_pass = element_check(each_email_detail, 3)
+        signature = element_check(each_email_detail, 4)
 
         try:
             server = smtplib.SMTP(service, port)
@@ -32,7 +47,7 @@ def the_email_details():
             continue
 
         # IF Login Auth is needed
-        if your_pass != 'nothing here': # login
+        if your_pass != the_word: # login
             server.ehlo
             server.starttls()
             try:
@@ -41,22 +56,27 @@ def the_email_details():
                 print('Failed to log in with your email and password.')
                 print('Restarting from the beginning - your creditionals were not accepted. Please ensure that you are using the App Password Feature.')
                 continue             
-        return sender, server
+        return sender, server, signature
 
-def email_fill_in(from_user, server, each_element): # Add optional signature parameter
+def email_fill_in(from_user, server, signature, each_element):
     """
     Send emails to the appropriate recipients
     Function relies on the following format with headers:
     "To email(s) | CC email(s) | Email subject | Email body | Email attachment(s) | Email signature"
     """
+    global the_word
+
     msg = MIMEMultipart()
-    sender = str(from_user)
-    to_email = str(each_element[0])
-    cc_email = str(each_element[1])
-    e_subject = str(each_element[2])
-    body = str(each_element[3])
-    filename = str(each_element[4])
-    signa = str(each_element[5]) # optional
+    sender = from_user
+    to_email = element_check(each_element, 0)
+    cc_email = element_check(each_element, 1)
+    e_subject = element_check(each_element, 2)
+    body = element_check(each_element, 3)
+    try:
+        filename = element_check(each_element, 4)
+    except:
+        filename = the_word
+    signa = signature # optional
     
     try:
         # Main Address Fields
@@ -64,10 +84,10 @@ def email_fill_in(from_user, server, each_element): # Add optional signature par
         if to_email.find("@") == -1:
             1/0 # Quickly raise the exception
         msg['To'] = to_email
-        if e_subject == 'nothing here':
+        if e_subject == the_word:
             e_subject = '[No Subject]'
         msg['Subject'] = e_subject
-        if cc_email != "nothing here" or cc_email.find('@') != -1:
+        if cc_email != the_word or cc_email.find('@') != -1:
             msg['Cc'] = cc_email
 
         ### Body
@@ -89,8 +109,10 @@ def email_fill_in(from_user, server, each_element): # Add optional signature par
                 attached_file = email_attach_func(each_file)
                 msg.attach(attached_file)
             except:
-                continue # If a file fails, go to the next one
-
+                if each_file != (the_word or ''): # The '' is due to the comma giving an empty string, if added accidentally at the end of a path
+                    print('The following file failed to attach..')
+                    print(each_file)
+                continue # If a file fails, proceed onwards. Ignore printing the_word or ''
         # Send
         server.send_message(msg)
 
@@ -107,6 +129,7 @@ def email_attach_func(filename):
     
     file_name = filename.split('\\')[-1:]   # Easy name read for attachment purposes at the end
     filename = filename.strip()
+
     """
     Credit below in reference to the following StackOverflow response.
     https://stackoverflow.com/questions/23171140/how-do-i-send-an-email-with-a-csv-attachment-using-python
@@ -143,20 +166,24 @@ def auto_email_sender(mailinglist):
     """Execute the program per the mailing list data inputs."""
     continue_marker = 'y'
     while continue_marker == 'y':
-        sender, server = the_email_details()
+        sender, server, signature = the_email_details()
+        if 'break' in (sender, server, signature):
+            continue
         print('Email Number: Email To | CC (Can be blank) | Subject | Body | Attachment path with Extension | optional: Signature path in .html')
         for each_element in range(len(mailinglist)):
-            email_fill_in(sender, server, mailinglist[each_element])
+            email_fill_in(sender, server, signature, mailinglist[each_element])
             print('The following email was sent:')
-            print('Email #'+str(each_element+1)+': '+'|'.join(map(str,mailinglist[each_element]))) # Utilize the join and map interable for list -> str per concat
-        print('Do you want to continue sending another email batch?')
-        continue_marker = input('If so, please input "y" (any case, no space), otherwise any other key will end the email automation.').lower()
+            print('Email #'+str(each_element+1)+': '+'|'.join(map(str,mailinglist[each_element]))) # Utilize the join and map iterable for list -> str per concat
+        print('\nDo you want to continue sending another email batch?')
+        continue_marker = input('If so, please input "y" (any case, no space), otherwise any other key to end the email automation.\n').lower()
         if continue_marker == 'y':
             continue
         else:
             break
 
-if __name__ == '__main__':
+def main():
     mailinglist = mr.start_prompt_with_sheets() # This can execute as its own program itself, given the modules
     auto_email_sender(mailinglist)
 
+if __name__ == '__main__':
+    main()
