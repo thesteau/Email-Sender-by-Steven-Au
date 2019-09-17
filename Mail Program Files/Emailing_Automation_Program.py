@@ -62,7 +62,7 @@ def email_fill_in(from_user, server, signature, each_element):
     """
     Send emails to the appropriate recipients
     Function relies on the following format with headers:
-    "To email(s) | CC email(s) | Email subject | Email body | Email attachment(s) | Email signature"
+    "To email(s) | CC email(s) | Email subject | Email body | Email attachment(s)"
     """
     global the_word
 
@@ -169,7 +169,7 @@ def auto_email_sender(mailinglist):
         sender, server, signature = the_email_details()
         if 'break' in (sender, server, signature):
             continue
-        print('Email Number: Email To | CC (Can be blank) | Subject | Body | Attachment path with Extension | optional: Signature path in .html')
+        print('Email Number: Email To | CC (Can be blank) | Subject | Body | Attachment path with Extension')
         for each_element in range(len(mailinglist)):
             email_fill_in(sender, server, signature, mailinglist[each_element])
             print('The following email was sent:')
