@@ -45,7 +45,7 @@ Where service and port are your smtp service and port used.
 Please use the provided headers of the CSV and Excel files as guidance.
 CSV File - Will only read and process the second row. The first row, header, will be ignored.
 Excel File - Will only read and process from the second row onwards. The first row, header, will be ignored.
-The program will also need the exact Excel File Sheet name you are reading from. *The intent is to read your specified Excel sheet.*
+The program will also need the exact Excel File Sheet name you are reading from. 
 
 
 *Full file paths are intended to be used for both inputs and Excel attachment referencing.*
