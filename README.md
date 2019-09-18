@@ -51,7 +51,7 @@ The program will also need the exact Excel File Sheet name you are reading from.
 *Full file paths are intended to be used for both inputs and Excel attachment referencing.*
 
 
-# External Modules to install
+# External Modules to Install
 * Pandas (To read both Excel and CSV)
 * xlrd
 * pyautogui
