@@ -2,7 +2,7 @@
 ! Run this program accordingly - Run_This_ Email_Sender_Program.py
 
 Procedure:
-1. Launched program - execute import of the Excel file elements via PANDAS module
+1. Launch program - execute import of the Excel file elements via PANDAS module
 2. Choice of manual or automatic - recommended automatic
 3. If manual, then the assumption is Google Chrome with Drafts
 4. If automatic, then the program will request for a CSV file path to input the following: 
