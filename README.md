@@ -4,10 +4,10 @@
 # Motivation
 To have a simplified way to send bulk emails just through authentication stored as a local CSV file and another sheet (Excel Only for the use of functions to create a custom sheet of values so you have have a reference of a sandbox sheet, such as editing the month using the Text() function, etc.)
 
-CSV - contains the service, port, your login email, your pass, and signature only as a HTML.
+**CSV** - contains the service, port, your login email, your pass, and signature only as a HTML.
 - All one needs to do to swap services is to modify the CSV file if the data in the Excel file remains the same.
 
-Excel - Contains the To addresses, CC addresses, Subject, Body, and Attachments all read seperately by a COMMA (",") only, applicable to only the TO, CC, or Attachments fields.
+**Excel** - Contains the To addresses, CC addresses, Subject, Body, and Attachments all read seperately by a ***COMMA (",") only***, applicable to only the *TO, CC, or Attachments* fields.
 
 # Procedure:
 
@@ -24,10 +24,13 @@ SMTP server service (Such as smtp.google.com), Port (Number only), Your email, Y
 The encryption used is TLS and not the SSL variant. 
 
 So the Python code uses the following:
-> '>>> server = smtplib.SMTP(service, port)
-
+```python
+>>> server = smtplib.SMTP(service, port)
+```
 Otherwise, SSL is simply the following:
-> '>>> server = smtplib.SMTP_SSL(service, port)
+```python
+>>> server = smtplib.SMTP_SSL(service, port)
+```
 
 where service and port are your smtp service and port used.
 
@@ -48,20 +51,20 @@ Full file paths are intended to be used for both inputs and Excel attachment ref
 
 
 
-# Reference
-Port 587
+# Reference - per the CSV
+*Port - **587***
 
-Outlook - 
-smtp-mail.outlook.com
+**Outlook** - 
+*smtp-mail.outlook.com*
 
-Yahoo -
-smtp.mail.yahoo.com
+**Yahoo** -
+*smtp.mail.yahoo.com*
 
-Google -
-smtp.gmail.com 
+**Google** -
+*smtp.gmail.com*
 
-Hotmail -
-smtp.live.com
+**Hotmail** -
+*smtp.live.com*
 
 
 ---
