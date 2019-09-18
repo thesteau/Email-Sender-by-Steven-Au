@@ -182,8 +182,19 @@ def auto_email_sender(mailinglist):
             break
 
 def main():
-    mailinglist = mr.start_prompt_with_sheets() # This can execute as its own program itself, given the modules
-    auto_email_sender(mailinglist)
+    while 1:
+        print('If you want to do a log in test, please input "log", otherwise press any key or "enter" to run the program.')
+        test = input('> ').lower()
+        if test == 'log':
+            the_email_details() # Email log in test
+            print('Successfully logged in, restarting the process.')
+            continue # restart from the beginning if the log in was succeded or not. 
+        mailinglist = mr.start_prompt_with_sheets() # This can execute as its own program itself, given the modules
+        auto_email_sender(mailinglist)
+        continuer = input('Continue? Enter "y" to restart, otherwise any key or "enter" to end.').lower()
+        if continuer == 'y':
+            continue
+        input('Aborting, please wait......')
 
 if __name__ == '__main__':
     main()

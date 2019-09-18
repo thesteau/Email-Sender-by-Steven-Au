@@ -13,16 +13,19 @@ To have a simplified way to send bulk emails via elements stored in a CSV file a
 
 **Excel** - Contains the To addresses, CC addresses, Subject, Body, and Attachments all read seperately by a ***COMMA (",") only***, applicable to only the *TO, CC, or Attachments* fields.
 
-# Procedure:
+# Procedure
 
-#1. Launch program - execute import of the Excel file elements via PANDAS module
+#1. Launch program - import requested Excel file path with elements containing the following values: To_email, CC_email, Email_subject, Email_body, and Email_attachments
 
-#2. Choice of manual or automatic - recommended automatic
+#2. Choice: Automate or Manual
 
-#3a. If manual, then the assumption is Google Chrome with Drafts
+#3a. If manual, then the program will open up Google Chrome and create email drafts
 
-#3b. If automatic, then the program will request for a CSV file path to input the following: 
-SMTP server service (Such as smtp.google.com), Port (Number only), Your email, Your pass *(* Password Optional - depends on the SMTP service. If omitted, the program will attempt to log in without your password/App password, again varies by service such as Google requesting for an App password)
+#3b. If automatic, then the program will request for a CSV file path with the following values: 
+SMTP_server_service (Such as smtp.google.com), Port_number, Your_email, Your_password, Your_signature
+
+Passord is optional depending on your SMTP server. If omitted, the program will attempt to log in without your password/App password.
+Your signature must be saved as a .HTML format
 
 # Port Configurations
 The encryption used is TLS and not the SSL variant. 
@@ -48,7 +51,7 @@ The program will also need the exact Excel File Sheet name you are reading from.
 *Full file paths are intended to be used for both inputs and Excel attachment referencing.*
 
 
-# External Modules to install:
+# External Modules to install
 * Pandas (To read both Excel and CSV)
 * xlrd
 * pyautogui
