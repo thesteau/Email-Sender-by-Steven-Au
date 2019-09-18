@@ -11,13 +11,13 @@ To have a simplified way to send bulk emails just through authentication stored 
 
 # Procedure:
 
-> #1. Launch program - execute import of the Excel file elements via PANDAS module
+#1. Launch program - execute import of the Excel file elements via PANDAS module
 
-> #2. Choice of manual or automatic - recommended automatic
+#2. Choice of manual or automatic - recommended automatic
 
-> #3a. If manual, then the assumption is Google Chrome with Drafts
+#3a. If manual, then the assumption is Google Chrome with Drafts
 
-> #3b. If automatic, then the program will request for a CSV file path to input the following: 
+#3b. If automatic, then the program will request for a CSV file path to input the following: 
 SMTP server service (Such as smtp.google.com), Port (Number only), Your email, Your pass *(* Password Optional - depends on the SMTP service. If omitted, the program will attempt to log in without your password/App password, again varies by service such as Google requesting for an App password)
 
 # Port Configurations
