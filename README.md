@@ -17,7 +17,7 @@ To have a simplified way to send bulk emails via elements stored in a CSV file a
 
 #1. Launch program - import requested Excel file path with elements containing the following values: To_email, CC_email, Email_subject, Email_body, and Email_attachments
 
-#2. Choice: Automate or Manual
+#2. Choice: Automatic or Manual
 
 #3a. If manual, then the program will open up Google Chrome and create email drafts
 
