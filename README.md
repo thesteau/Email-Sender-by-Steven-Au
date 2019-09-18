@@ -2,8 +2,12 @@
 ! Run this program accordingly - Run_This_ Email_Sender_Program.py
 
 # Motivation
-To have a simplified way to send bulk emails just through authentication stored as a local CSV file and another sheet (Excel Only for the use of functions to create a custom sheet of values so you have have a reference of a sandbox sheet, such as editing the month using the Text() function, etc.)
+To have a simplified way to send bulk emails via elements stored in a CSV file and an Excel file. 
 
+*(An Excel file is used to create a custom sheet of values so you can have a referenced sandbox sheet)*
+
+
+# Files
 **CSV** - contains the service, port, your login email, your pass, and signature only as a HTML.
 - All one needs to do to swap services is to modify the CSV file if the data in the Excel file remains the same.
 
@@ -32,17 +36,17 @@ Otherwise, SSL is simply the following:
 >>> server = smtplib.SMTP_SSL(service, port)
 ```
 
-where service and port are your smtp service and port used.
+Where service and port are your smtp service and port used.
 
 # Important
 Please use the provided headers of the CSV and Excel files as guidance.
 CSV File - Will only read and process the second row. The first row, header, will be ignored.
 Excel File - Will only read and process from the second row onwards. The first row, header, will be ignored.
-The program will also need the exact Excel File Sheet name you are reading from. The intent is to have the Sheet read as the 4th sheet.
+The program will also need the exact Excel File Sheet name you are reading from. *The intent is to read your specified Excel sheet.*
 
----
-Full file paths are intended to be used for both inputs and Excel attachment referencing.
----
+
+*Full file paths are intended to be used for both inputs and Excel attachment referencing.*
+
 
 # External Modules to install:
 * Pandas (To read both Excel and CSV)
@@ -51,24 +55,27 @@ Full file paths are intended to be used for both inputs and Excel attachment ref
 
 
 
-# Reference - per the CSV
-*Port - **587***
+# Reference - *for the CSV file*
+>**Port** - *587*
 
-**Outlook** - 
+>**Outlook** - 
 *smtp-mail.outlook.com*
 
-**Yahoo** -
+>**Yahoo** -
 *smtp.mail.yahoo.com*
 
-**Google** -
+>**Google** -
 *smtp.gmail.com*
 
-**Hotmail** -
+>**Hotmail** -
 *smtp.live.com*
-
-
----
 
 https://support.google.com/a/answer/176600?hl=en
 
- Program was written by Steven Au
+---
+# Credits
+*Anything sourced are referenced in the script due to the ever-changing nature of keeping or removing the code*
+
+
+---
+*Scripts in this package were written by Steven Au*
