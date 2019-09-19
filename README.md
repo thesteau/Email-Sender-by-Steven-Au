@@ -8,7 +8,7 @@ To have a simplified way to send bulk emails via elements stored in a CSV file a
 
 
 # Files
-**CSV** - contains the service, port, your login email, your pass, and signature only as a HTML.
+**CSV** - contains the service, port, your login email, your password, and signature only as a HTML.
 - All one needs to do to swap services is to modify the CSV file if the data in the Excel file remains the same.
 
 **Excel** - Contains the To addresses, CC addresses, Subject, Body, and Attachments all read seperately by a ***COMMA (",") only***, applicable to only the *TO, CC, or Attachments* fields.
@@ -17,7 +17,7 @@ To have a simplified way to send bulk emails via elements stored in a CSV file a
 
 #1. Launch program - import requested Excel file path with elements containing the following values: To_email, CC_email, Email_subject, Email_body, and Email_attachments
 
-#2. Choice: Automate or Manual
+#2. Choice: Automatic or Manual
 
 #3a. If manual, then the program will open up Google Chrome and create email drafts
 
@@ -45,13 +45,13 @@ Where service and port are your smtp service and port used.
 Please use the provided headers of the CSV and Excel files as guidance.
 CSV File - Will only read and process the second row. The first row, header, will be ignored.
 Excel File - Will only read and process from the second row onwards. The first row, header, will be ignored.
-The program will also need the exact Excel File Sheet name you are reading from. *The intent is to read your specified Excel sheet.*
+The program will also need the exact Excel File Sheet name you are reading from. 
 
 
 *Full file paths are intended to be used for both inputs and Excel attachment referencing.*
 
 
-# External Modules to install
+# External Modules to Install
 * Pandas (To read both Excel and CSV)
 * xlrd
 * pyautogui
