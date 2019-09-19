@@ -13,21 +13,66 @@ from email.mime.base import MIMEBase
 from email import encoders
 import Mailing_list_read as mr
 
-## global error word
-the_word = 'nothing here'
+"""
+DOC
+
+to do:
+    Update to docstrings to Google format
+    Change the importing of the reader script to only import without much of its verbage or to redirect accordingly to allow script reuse in other projects
+
+    Add a function to simply replace the NaN from Pandas instead of using the .fillna, thus allowing the script to be independent for future projects
+
+    Change the reader module to an alternative name
+    Add a None default to the mailing_list_reader module solely for independent recitals if any
+
+
+    Add a custom delay time via the time module
+
+"""
+
+
+## Global Constant - Error Word
+THE_WORD = 'nothing here'
 
 def element_check(listchk, number):
-    """This is to test whter the sheets used contain the requested elements"""
-    global the_word
+    """Element checker
+
+    This checks 
+    This is to test whter the sheets used contain the requested elements
+    
+    Args:
+        listchk: Elements
+        number (int):
+
+    Returns: 
+
+    Example:
+
+
+
+    """
+    global THE_WORD
     try:
         the_element = str(listchk[number])
     except:
-        the_element = the_word
+        the_element = THE_WORD
     return the_element
 
 def the_email_details():
-    """Email detail inporter"""
-    global the_word
+    """Email detail inporter
+
+    details
+
+    Returns:
+        sender:
+        server:
+        signature:
+    
+    Example:
+
+    
+    """
+    global THE_WORD
 
     while 1:
         each_email_detail = mr.file_inputer_csv()
@@ -47,7 +92,7 @@ def the_email_details():
             continue
 
         # IF Login Auth is needed
-        if your_pass != the_word: # login
+        if your_pass != THE_WORD: # login
             server.ehlo
             server.starttls()
             try:
@@ -59,12 +104,29 @@ def the_email_details():
         return sender, server, signature
 
 def email_fill_in(from_user, server, signature, each_element):
+    """Send emails to the appropriate recipients
+
+    Usage:
+    Function relies on the following headers in the Excel File:
+        "To email(s) | CC email(s) | Email subject | Email body | Email attachment(s)"
+    
+        The headers will not be imported and are used for referencing purposes.
+
+    To Do:
+        Change the process of the reader script to solely import data and export the lists
+        Add various formats such as TSV
+
+    Args:
+        from_user: 
+        server:
+        signature:
+        each_element: 
+
+    Returns:
+
+
     """
-    Send emails to the appropriate recipients
-    Function relies on the following format with headers:
-    "To email(s) | CC email(s) | Email subject | Email body | Email attachment(s)"
-    """
-    global the_word
+    global THE_WORD
 
     msg = MIMEMultipart()
     sender = from_user
@@ -75,7 +137,7 @@ def email_fill_in(from_user, server, signature, each_element):
     try:
         filename = element_check(each_element, 4)
     except:
-        filename = the_word
+        filename = THE_WORD
     signa = signature # optional
     
     try:
@@ -84,10 +146,10 @@ def email_fill_in(from_user, server, signature, each_element):
         if to_email.find("@") == -1:
             1/0 # Quickly raise the exception
         msg['To'] = to_email
-        if e_subject == the_word:
+        if e_subject == THE_WORD:
             e_subject = '[No Subject]'
         msg['Subject'] = e_subject
-        if cc_email != the_word or cc_email.find('@') != -1:
+        if cc_email != THE_WORD or cc_email.find('@') != -1:
             msg['Cc'] = cc_email
 
         ### Body
@@ -109,10 +171,10 @@ def email_fill_in(from_user, server, signature, each_element):
                 attached_file = email_attach_func(each_file)
                 msg.attach(attached_file)
             except:
-                if each_file != (the_word or ['']): # The '' is due to the comma giving an empty string, if added accidentally at the end of a path
+                if each_file != (THE_WORD or ['']): # The '' is due to the comma giving an empty string, if added accidentally at the end of a path
                     print('The following file failed to attach..')
                     print(each_file)
-                continue # If a file fails, proceed onwards. Ignore printing the_word or ''
+                continue # If a file fails, proceed onwards. Ignore printing THE_WORD or ''
         # Send
         server.send_message(msg)
 
@@ -125,15 +187,21 @@ def email_fill_in(from_user, server, signature, each_element):
         print("Attachment(s):", filename)
 
 def email_attach_func(filename):
-    """Get attachment type and return it for attachment purposes"""
+    """Get attachment type and return it for attachment purposes
+    
+    Parameters:
+
+
+    Credits:
+        Credit below in reference to the following StackOverflow response.
+        https://stackoverflow.com/questions/23171140/how-do-i-send-an-email-with-a-csv-attachment-using-python
+    
+    """
     
     file_name = filename.split('\\')[-1:]   # Easy name read for attachment purposes at the end
     filename = filename.strip()
 
-    """
-    Credit below in reference to the following StackOverflow response.
-    https://stackoverflow.com/questions/23171140/how-do-i-send-an-email-with-a-csv-attachment-using-python
-    """
+    # Credits @ above
     ctype, encoding = mimetypes.guess_type(filename)
     if ctype is None or encoding is not None:
         ctype = "application/octet-stream"
@@ -163,7 +231,15 @@ def email_attach_func(filename):
     return attachment
 
 def auto_email_sender(mailinglist):
-    """Execute the program per the mailing list data inputs."""
+    """Execute the program per the mailing list data inputs.
+    
+    Parameters:
+
+
+    Process:
+
+    
+    """
     continue_marker = 'y'
     while continue_marker == 'y':
         sender, server, signature = the_email_details()
@@ -182,6 +258,8 @@ def auto_email_sender(mailinglist):
             break
 
 def main():
+    """Main run
+    """
     while 1:
         print('If you want to do a log in test, please input "log", otherwise press any key or "enter" to run the program.')
         test = input('> ').lower()
