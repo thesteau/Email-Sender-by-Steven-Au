@@ -24,7 +24,7 @@ To have a simplified way to send bulk emails via elements stored in a CSV file a
 #3b. If automatic, then the program will request for a CSV file path with the following values: 
 SMTP_server_service (Such as smtp.google.com), Port_number, Your_email, Your_password, Your_signature
 
-Passord is optional depending on your SMTP server. If omitted, the program will attempt to log in without your password/App password.
+The password is optional depending on your SMTP server. If omitted, the program will attempt to log in without your password/App password.
 Your signature must be saved as a .HTML format
 
 # Port Configurations
