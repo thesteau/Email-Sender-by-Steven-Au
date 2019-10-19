@@ -1,5 +1,5 @@
 # Email-Sender-by-Steven-Au-Python-3.7
-! Run this program accordingly - Run_This_ Email_Sender_Program.py
+! To run this program accordingly - Run_This_ Email_Sender_Program.py
 
 # Motivation
 To have a simplified way to send bulk emails via elements stored in a CSV file and an Excel file. 
