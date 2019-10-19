@@ -11,7 +11,7 @@ To have a simplified way to send bulk emails via elements stored in a CSV file a
 **CSV** - contains the service, port, your login email, your password, and signature only as a HTML.
 - All one needs to do to swap services is to modify the CSV file if the data in the Excel file remains the same.
 
-**Excel** - Contains the To addresses, CC addresses, Subject, Body, and Attachments. Multiple *TO, CC, or Attachments* are all read seperately by a ***COMMA (",") only***.
+**Excel** - Contains the To addresses, CC addresses, Subject, Body, and Attachments. Multiple *TO, CC, or Attachments* are all read seperately by a ***COMMA (",")***.
 
 # Procedure
 
