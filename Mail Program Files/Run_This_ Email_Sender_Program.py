@@ -14,7 +14,7 @@ def main():
         if choice_check == "a":
             eap.auto_email_sender(mailinglist) # Send based on parameters
         else: 
-            md.manual_gmail_method(mailinglist) # Get in Gmail
+            None #md.manual_gmail_method(mailinglist) # Get in Gmail
 
         print('')
         print('Do you want to return to the main menu to selectt either Auto or Manual?')
