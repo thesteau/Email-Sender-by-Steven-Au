@@ -1,6 +1,153 @@
-#test
-# Program written by Steven Au
+# Complete Rewrite to OOP PAradigm
 
+#shebang line
+# Program written by Steven Au
+# Python 3.8.2
+
+#### Please Install Pandas
+import os
+import smtplib
+import time
+import mimetypes
+
+from email.message import Message
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.audio import MIMEAudio
+from email.mime.image import MIMEImage
+from email.mime.base import MIMEBase
+from email import encoders
+
+import pandas as pd # Need to specify the version
+import xlrd
+
+class AutoEmailProgram:
+    pass
+
+    THE_WORD = 'nothing here'
+    TARGET_ExCEL = 5
+    TARGET_CSV = 5 # Should rename 
+
+    # Need to make data import type independent
+
+    def __init__(self):
+        pass
+
+
+
+## Will be its individual file
+class FileProcess:
+    pass
+    "Import FileProcess as fm?"
+    import pandas as pd
+    import csv
+    """
+    If any file, the primary process is via CSV, but should use pandas to simplify
+    """
+    def __init__(self):
+        pass
+
+
+
+
+
+
+## Completed?
+def email_attach_func(filename):
+    """Get attachment type and return it for attachment purposes
+    
+    Parameters:
+
+
+    Credits:
+        Credit below in reference to the following StackOverflow response.
+        https://stackoverflow.com/questions/23171140/how-do-i-send-an-email-with-a-csv-attachment-using-python
+    
+    """
+
+    import pathlib as pl
+    import platform as pf
+
+    file_path = pl.Path(filename)
+    file_name = file_path.parent
+    filename = file_path.stem # This is probably not it?
+
+    # Rebuild
+    ctype, encoding = mimetypes.guess_type(filename)
+    if ctype is None or encoding is not None:
+        ctype = "application/octet-stream"
+    maintype, subtype = ctype.split("/", 1)
+
+    def _attach_type(file_pathing, subtype):
+        """ Private function
+            File encoder
+        """
+        with open(file_pathing, 'rb') as the_file:
+            attachment = MIMEText(file_pathing.read(), _subtype=subtype)
+        return attachment
+
+    if maintype in ('text', 'image', 'audio'):
+        attachment = _attach_type(filename, subtype)
+
+    else:
+        with open(filename, 'rb') as the_file:
+            attachment = MIMEBase(maintype, subtype)
+            attachment.set_payload(the_file_type.read())
+        encoders.encode_base64(attachment)
+
+    attachment.add_header('Content-Disposition', 'attachment', filename=file_name[0])
+    return attachment
+
+    """
+    Pseudocode:
+    derive the file names and paths
+
+
+    """
+
+    file_name = filename.split('\\')[-1:]   # Easy name read for attachment purposes at the end
+    filename = filename.strip()
+
+    # Credits @ above
+    ctype, encoding = mimetypes.guess_type(filename)
+    if ctype is None or encoding is not None:
+        ctype = "application/octet-stream"
+
+    maintype, subtype = ctype.split("/", 1)
+    
+    if maintype == "text":
+        the_file_type = open(filename)
+        attachment = MIMEText(the_file_type.read(), _subtype=subtype)
+        the_file_type.close()
+    elif maintype == "image":
+        the_file_type = open(filename, "rb")
+        attachment = MIMEImage(the_file_type.read(), _subtype=subtype)
+        the_file_type.close()
+    elif maintype == "audio":
+        the_file_type = open(filename, "rb")
+        attachment = MIMEAudio(the_file_type.read(), _subtype=subtype)
+        the_file_type.close()
+    else:
+        the_file_type = open(filename, "rb")
+        attachment = MIMEBase(maintype, subtype)
+        attachment.set_payload(the_file_type.read())
+        the_file_type.close()
+        encoders.encode_base64(attachment)
+    
+    attachment.add_header('Content-Disposition', 'attachment', filename=file_name[0])
+    return attachment
+    ## END
+
+
+
+
+
+
+
+
+
+
+############## OLD
 import Manual_gmail_draft as md
 import Mailing_list_read as mr
 import Emailing_Automation_Program as eap
