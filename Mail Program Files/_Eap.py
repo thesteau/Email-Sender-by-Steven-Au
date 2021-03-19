@@ -16,7 +16,7 @@ from email.mime.image import MIMEImage
 from email.mime.base import MIMEBase
 from email import encoders
 
-class DataImport:
+class SheetDataImport:
     """"""
 
     def __init__(self):
@@ -73,6 +73,7 @@ class DataImport:
         # Recitals
 
         self.prompts(2)
+
         # Use the global number for list default - note that the list may vary if a column is either added or removed
         the_csv = self.empty_func_list(self._target_number_c)
         if the_csv == [['nothing here'] * self._target_number_c]:
@@ -107,9 +108,10 @@ class DataImport:
 class EmailAuto:
     """"""
 
-    def __init__(self):
+    def __init__(self, mailing_list):
         """"""
         self._the_word = "nothing here"
+        self._mailing_list = mailing_list
 
     def _element_check(self, list_check, number):
         """"""
