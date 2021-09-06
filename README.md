@@ -6,15 +6,24 @@ To have a simplified way to send bulk emails via elements stored in a CSV file a
 
 *(An Excel file is used to create a custom sheet of values so you can have a referenced sandbox sheet)*
 
+# Requirements
+```
+pandas
+openpyxl
+```
 
 # Files
+Two files are required, they can be any file extension.  
+**Note**: Excel files have an additional requirement of entering the sheet name (tab name).
+```
 **CSV** - contains the service, port, your login email, your password, and signature only as a HTML.
 - All one needs to do to swap services is to modify the CSV file if the data in the Excel file remains the same.
 
 **Excel** - Contains the To addresses, CC addresses, Subject, Body, and Attachments. Multiple *TO, CC, or Attachments* are all read seperately by a ***COMMA (",")***.
+```
 
 # Procedure
-
+```
 #1. Launch program - import requested Excel file path with elements containing the following values: To_email, CC_email, Email_subject, Email_body, and Email_attachments
 
 #2. Choice: Automatic or Manual
@@ -26,6 +35,7 @@ SMTP_server_service (Such as smtp.google.com), Port_number, Your_email, Your_pas
 
 The password is optional depending on your SMTP server. If omitted, the program will attempt to log in without your password/App password.
 Your signature must be saved in a .HTML format
+```
 
 # Port Configurations
 The encryption used is TLS and not the SSL variant. 
@@ -51,13 +61,7 @@ The program will also need the exact Excel File Sheet name you are reading from.
 *Full file paths are intended to be used for both inputs and Excel attachment referencing.*
 
 
-# External Modules to Install
-* pandas (To read both Excel and CSV)
-* xlrd
-
-
-
-# Reference - *for the CSV file*
+# Reference - *for the Sender file*
 >**Port** - *587*
 
 >**Outlook** - 
@@ -79,5 +83,8 @@ https://support.google.com/a/answer/176600?hl=en
 *Anything sourced are referenced in the script due to the ever-changing nature of keeping or removing the code*
 
 
----
-*Scripts in this package were written by Steven Au*
+# Author
+Steven Au
+
+# License
+See the LICENSE.md for details
