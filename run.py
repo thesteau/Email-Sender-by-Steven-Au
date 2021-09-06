@@ -26,8 +26,10 @@ def main():
         p.recitals_sender()
         sender.data_read()  # Note: Cannot assume that the recipient file contains sender data if using an Excel file.
         print('----')
+
         # Email sending
-        print(sender.show_pandas())
+        emailing = ew.EmailWriter(sender.get_pandas(), recipients.get_pandas())
+
 
         # Program closure
         print()

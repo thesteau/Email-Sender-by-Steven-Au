@@ -10,18 +10,18 @@ class ReadMailing:
     """ Reads the file and converts the data into a pandas dataframe."""
 
     def __init__(self):
-        self._target_value = params.Parameters().send_target()
-        self._the_word = params.Parameters().send_word()
-        self._valid_extensions = params.Parameters().send_extensions()
+        self._target_value = params.Parameters().get_target()
+        self._the_word = params.Parameters().get_word()
+        self._valid_extensions = params.Parameters().get_extensions()
         self._file_path = None
         self._pan_data = None
 
-    # Show the current data.
-    def show_file_path(self):
+    # Get the current data.
+    def get_file_path(self):
         """ Show the currently stored file path."""
         return self._file_path
 
-    def show_pandas(self):
+    def get_pandas(self):
         """ Show the pandas dataframe"""
         return self._pan_data
 
@@ -147,4 +147,4 @@ class ReadMailing:
 if __name__ == "__main__":
     rm = ReadMailing()
     rm.data_read()
-    print(rm.show_pandas())
+    print(rm.get_pandas())

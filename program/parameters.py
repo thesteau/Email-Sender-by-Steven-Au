@@ -10,13 +10,13 @@ class Parameters:
             '.xlsx'
         ]
 
-    def send_target(self):
+    def get_target(self):
         return self._target_value
 
-    def send_word(self):
+    def get_word(self):
         return self._the_word
 
-    def send_extensions(self):
+    def get_extensions(self):
         return self._valid_extensions
 
     def recitals_program_start(self):
@@ -40,7 +40,7 @@ class Parameters:
 
     def recitals_sender(self):
         """ Instructions displayed to the user per the sender file."""
-        print("Now to load the sender data.")
+        print("Loading the sender data.")
         print("Please provide the file path for the following on the 2nd row: ")
         print("SMTP server | SMTP Port | Your_Email | Your_Password "
               "(Leave blank if not needed) | optional: Signature path in .html format.")
