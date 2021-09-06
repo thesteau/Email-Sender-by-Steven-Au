@@ -11,12 +11,15 @@ class Parameters:
         ]
 
     def get_target(self):
+        """ Send the target column value."""
         return self._target_value
 
     def get_word(self):
+        """ Send the key default word (Different from Python's special None keyword."""
         return self._the_word
 
     def get_extensions(self):
+        """ Send the valid extension value list."""
         return self._valid_extensions
 
     def recitals_program_start(self):
