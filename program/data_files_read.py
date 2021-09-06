@@ -1,4 +1,5 @@
 # Reads and converts the data file into a pandas dataframe for use with the mailing.
+# Note xlrd >= 1.0.0 must be installed for Excel processing.
 import os
 
 import pandas as pd
@@ -15,6 +16,16 @@ class ReadMailing:
         self._file_path = None
         self._pan_data = None
 
+    # Show the current data.
+    def show_file_path(self):
+        """ Show the currently stored file path."""
+        return self._file_path
+
+    def show_pandas(self):
+        """ Show the pandas dataframe"""
+        return self._pan_data
+
+    # READS
     # Set the file path
     def file_read(self):
         """ Reads to check if the path entered leads to a file. Else, recursively prompt user to enter again.
@@ -51,6 +62,7 @@ class ReadMailing:
 
         return self.file_read()  # Prompt user to reenter
 
+    # PROCESSING
     # Set the dataframe values
     def process_data(self):
         """ Processes the data accordingly per the file extension.
@@ -70,6 +82,8 @@ class ReadMailing:
     def data_to_df(self, file_path=None, skip_rows=0):
         """ Read and load the data file into a pandas dataframe.
             Note: this method was intended to be "flexible" to load any file into a pandas dataframe on demand.
+            Returns:
+                df.values.tolist() = pandas dataframe values converted to a list
         """
         if file_path is None:
             print('No data file to process into a dataframe.....')
@@ -78,42 +92,59 @@ class ReadMailing:
             df = self.excel_processing(file_path, skip_rows)
         elif file_path.endswith('.csv'):
             df = self.csv_processing(file_path, skip_rows)
+        # Please add additional elif branching for other file extensions.
         else:  # File is currently unsupported.
             print('Please add the corresponding method for this file extension.')
+            return
 
         df.fillna(self._the_word)
         return df.values.tolist()
 
+    # Individual branch processing for the data_to_df method.
     def excel_processing(self, file_path, skip_rows):
         """ Processes the excel file into a pandas dataframe.
+            Recursively prompts the user to re-enter the correct sheet name (tab name) if it is erroneous.
+            Returns:
+                the_dat = the loaded pandas dataframe file.
         """
-        excel_file = pd.ExcelFile(file_path)
-
+        # Note: Due to a user entry of the case sensitive sheet name, this check ensures correct processing.
         try:
-            print('Note: The tab name is case sensitive, please ensure that it is correct.')
+            print('Note: The tab name is case sensitive, please ensure that it is entered correctly.')
             sheet_name = input('Enter the tab name to be read. > ')
-            the_dat = pd.read_excel(excel_file, sheet_name, skiprows=skip_rows)
-            print('Excel file read successfully!\n')
+            the_dat = pd.read_excel(file_path, sheet_name, skiprows=skip_rows, engine='openpyxl')
+            print('Excel file loaded successfully!\n')
             return the_dat
         except:
             print('The tab name is incorrect.')
             print('Please check the file again for the specific tab name.')
             print('Tip: Copy and paste the tab name.')
+            print()
             return self.excel_processing(file_path, skip_rows)
 
     def csv_processing(self, file_path, skip_rows):
         """ Processes a CSV file into a pandas dataframe.
+            Returns:
+                the csv pandas dataframe
         """
-        the_dat = pd.read_csv(file_path, skiprows=skip_rows)
-        return the_dat
+        print('CSV file loaded successfully!')
+        return pd.read_csv(file_path, skiprows=skip_rows)
 
     # Add additional filetype processing here.
     def tsv_processing(self, file_path, skip_rows):
         """ Processes a TSV file into a pandas dataframe.
+            Returns:
+                the tsv pandas dataframe
         """
-        the_dat = pd.read_csv(file_path, sep='\t', skiprows=skip_rows)
-        return the_dat
+        print('TSV file loaded successfully!')
+        return pd.read_csv(file_path, sep='\t', skiprows=skip_rows)
+
+    def process_file(self):
+        """ Processes the data with the vital methods as a standalone."""
+        self.file_read()
+        self.process_data()
 
 
-test = ReadMailing()
-test.file_read()
+if __name__ == "__main__":
+    rm = ReadMailing()
+    rm.process_file()
+    rm.show_pandas()
