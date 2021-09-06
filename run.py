@@ -27,6 +27,11 @@ def main():
         sender.data_read()  # Note: Cannot assume that the recipient file contains sender data if using an Excel file.
         print('----')
 
+        print()
+        restart = input('Press any key to send emails, otherwise, enter "a" to restart.').lower()
+        if restart == 'a':
+            continue
+
         # Email sending
         emailing = ew.EmailWriter(sender, recipients)
 
