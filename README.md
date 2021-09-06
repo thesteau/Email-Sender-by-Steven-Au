@@ -1,4 +1,4 @@
-# Email-Sender-by-Steven-Au
+# Bulk Email Sender by Steven-Au
 Automatically send bulk emails based on data elements for both the Sender and Recipient(s) using data files.
 
 ## Requirements
