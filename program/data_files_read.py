@@ -111,7 +111,7 @@ class ReadMailing:
         try:
             print('Note: The tab name is case sensitive, please ensure that it is entered correctly.')
             sheet_name = input('Enter the tab name to be read. > ')
-            the_dat = pd.read_excel(file_path, sheet_name, skiprows=skip_rows, engine='openpyxl')
+            the_dat = pd.read_excel(file_path, sheet_name, skiprows=skip_rows)
             print('Excel file loaded successfully!\n')
             return the_dat
         except:
