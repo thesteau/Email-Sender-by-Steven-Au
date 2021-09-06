@@ -19,15 +19,49 @@ class EmailWriter:
         self._sender = sender
         self._recipients = recipients
         self._server = None
+        self._pass = self._the_word
 
-    def email_sender_details(self):
-        """ Fills in the sender details.
+    def set_pass(self, password=None):
+        """ Sets the password for the user."""
+        if password is None:
+            password = input('Set password\n> ')
+        self._pass = password
+
+    def set_server(self, service=None, port=None):
+        """ Sets the service of user."""
+        if service is None:
+            service = input('Set service\n> ')
+        if port is None:
+            port = int(input('Set port number\n> '))
+        self._server = smtplib.SMTP(service, port)
+        return self._server
+
+    def set_login_server(self, sender):
+        """ Login to the server based on the currently stored password and server."""
+        server = self._server
+        the_pass = self._pass
+
+        server.ehlo
+        server.starttls()
+
+        try:
+            server.login(sender, the_pass)
+            self._server = server
+            print('Logged in successfully!')
+        except:
+            print('Failed to log in.')
+
+    def email_sender_details(self, send_dat=None):
+        """ Initiates the sender side details, initiates the server credentials, and, if possible, log in to
+            the service with the provided password.
+                Note: The password can be omitted if your service allows it.
             Returns:
-                server =
-                sender =
-                signature =
+                server = the initiated object for the emailing service
+                sender = the "From" address of the email, also the current user.
+                signature = The html block email signature
         """
-        send_dat = self._sender.get_pandas()[0]
+        if send_dat is None:
+            send_dat = self._sender.get_pandas()[0]
 
         service = send_dat[0]
         port = int(send_dat[1])
@@ -37,7 +71,7 @@ class EmailWriter:
 
         # See the ReadMe for details on the service and port.
         try:
-            server = smtplib.SMTP(service, port)
+            server = self.set_server(service, port)
         except:
             print("Could not connect to your requested Service: ", service, ' and Port: ', port)
             print('Restarting from the beginning - please save a new file and re-enter the file path accordingly.')
@@ -70,7 +104,13 @@ class EmailWriter:
             raise Exception
 
     def email_fill_in(self, from_user, signature, recipient_dat, server=None):
-        """ """
+        """ Writes the email for the user.
+            Inputs:
+                from_user = the current user
+                signature = the signature html block
+                recipient_dat = list elements of the email recipient details.
+                server = the email service used
+        """
         # No server
         if server is None and self._server is None:
             print('No server is currently valid...')
@@ -132,7 +172,10 @@ class EmailWriter:
             print("Attachment(s):", filename)
 
     def email_attachment(self, filename):
-        """ Attach to the email document with the corresponding file types."""
+        """ Attach to the email document with the corresponding file types.
+            Returns:
+                  attachment = the file to be attached into the email
+        """
         file_name = filename.split('\\')[-1:]  # Easy name read for attachment purposes at the end
         filename = filename.strip()
 
@@ -165,6 +208,7 @@ class EmailWriter:
         return attachment
 
     def email_processing(self, mailing_list=None):
+        """ Processes each email based on the mailing list details."""
 
         if mailing_list is None and self._recipients.get_pandas() is None:
             print('Cannot send an email when there is nothing to send.')
@@ -173,6 +217,7 @@ class EmailWriter:
             mailing_list = self._recipients.get_pandas()
 
         sender, signature = self.email_sender_details()
+
         print('Email Number: Email To | CC (Can be blank) | Subject | Body | Attachment path with Extension')
         for each_element in range(len(mailing_list)):
             self.email_fill_in(sender, signature, mailing_list[each_element])
