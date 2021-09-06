@@ -28,7 +28,7 @@ Excel File:
 
 ***Note***: Excel files have an additional requirement of entering the sheet name (tab name).
 
-#####Sender Data File
+##### Sender Data File
 
 Service | Port | Your Login Email | Your Password | Signature
 ------- | ---- | ---------------- | ------------- | ---------
@@ -42,7 +42,7 @@ Note that you can set your password with the following if you do not want to use
 >>> email_writer.EmailWriter().set_pass('Your Password')
 ```
 
-#####Recipient Data File  
+##### Recipient Data File  
 
 To addresses | CC addresses | Subject | Body | Attachments
 ------------ | ------------ | ------- | ---- | -----------
