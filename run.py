@@ -3,10 +3,10 @@
 # import files here
 
 def main():
-    """Emailing choice to automatically or GUI manual process emails."""
-    print('Welcome to the automatic email program by Steven Au!')
-    print('Please have the following files prepared: \n1.Your emailing credentials\n2. The recipient file.')
-    print('Both files must have the details filled in accordingly per the headers.')
+    """ Email program primary runner."""
+    print('Welcome to the automatic email program by Steven Au!\n')
+    print('Please have the following files prepared: \n1. Your emailing credentials\n2. The recipient file.')
+    print('Both files must have the details filled in accordingly per the headers.\n')
     input('Press enter to proceed...')
 
     active_runner = 'y'
