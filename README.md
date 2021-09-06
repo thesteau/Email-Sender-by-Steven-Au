@@ -1,20 +1,31 @@
 # Email-Sender-by-Steven-Au
 Automatically send bulk emails based on data elements for both the Sender and Recipient(s) using data files.
 
-# Motivation
-To have a simplified way to send bulk emails via elements stored in a CSV file and an Excel file. 
-
-*(An Excel file is used to create a custom sheet of values so you can have a referenced sandbox sheet)*
-
-# Requirements
+## Requirements
 ```
-pandas
-openpyxl
+pandas 1.3.2 (Due to read_excel compatibility)
+Python >=3.7.x
 ```
 
-# Getting Started
-### Files
+## Getting Started
 Two files are required, they can be any file extension.  
+*Currently, only CSV and Excel .xlsx are supported.*  
+## Important
+Please use the provided headers of the CSV and Excel files as guidance.
+
+CSV File:
+* Will only read and process the second row. 
+* The first row, header, will be ignored.  
+
+Excel File:
+* Will only read and process from the second row onwards.
+* The first row, header, will be ignored.
+* The **sheet name** must be provided when prompted.
+
+*Full file paths are intended to be used for both inputs and attachment referencing.*
+
+### Data File Structure
+
 **Note**: Excel files have an additional requirement of entering the sheet name (tab name).
 ```
 **CSV** - contains the service, port, your login email, your password, and signature only as a HTML.
@@ -24,22 +35,22 @@ Two files are required, they can be any file extension.
 ```
 
 ### Procedure
-```
-#1. Launch program - import requested Excel file path with elements containing the following values: To_email, CC_email, Email_subject, Email_body, and Email_attachments
 
-#2. Choice: Automatic or Manual
+1. Launch program - import requested Excel file path with elements containing the following values: To_email, CC_email, Email_subject, Email_body, and Email_attachments
 
-#3a. If manual, then the program will open up Google Chrome and create email drafts
+2. Choice: Automatic or Manual
 
-#3b. If automatic, then the program will request for a CSV file path with the following values: 
+3.   
+    a. If manual, then the program will open up Google Chrome and create email drafts
+    b. If automatic, then the program will request for a CSV file path with the following values: 
 SMTP_server_service (Such as smtp.google.com), Port_number, Your_email, Your_password, Your_signature
 
 The password is optional depending on your SMTP server. If omitted, the program will attempt to log in without your password/App password.
 Your signature must be saved in a .HTML format
-```
 
-# Port Configurations
-The encryption used is TLS and not the SSL variant. 
+
+## Port Configurations
+The encryption used in this program is TLS and ***not*** SSL 
 
 So the Python code uses the following:
 ```python
@@ -52,17 +63,8 @@ Otherwise, SSL is simply the following:
 
 Where service and port are your smtp service and port used.
 
-# Important
-Please use the provided headers of the CSV and Excel files as guidance.
-CSV File - Will only read and process the second row. The first row, header, will be ignored.
-Excel File - Will only read and process from the second row onwards. The first row, header, will be ignored.
-The program will also need the exact Excel File Sheet name you are reading from. 
-
-
-*Full file paths are intended to be used for both inputs and Excel attachment referencing.*
-
-
-# Reference - *for the Sender file*
+## Reference - 
+*Only for the Sender file*
 >**Port** - *587*
 
 >**Outlook** - 
@@ -80,12 +82,11 @@ The program will also need the exact Excel File Sheet name you are reading from.
 https://support.google.com/a/answer/176600?hl=en
 
 ---
-# Credits
-*Anything sourced are referenced in the script due to the ever-changing nature of keeping or removing the code*
+## Credits
+*Code citations are available in-line.*
 
-
-# Author
+## Author
 Steven Au
 
-# License
+## License
 See the LICENSE.md for details
