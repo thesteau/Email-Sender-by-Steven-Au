@@ -1,8 +1,6 @@
 # Writes and send the emails
 import smtplib
-import time
 import mimetypes
-from email.message import Message
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.audio import MIMEAudio
@@ -10,7 +8,6 @@ from email.mime.image import MIMEImage
 from email.mime.base import MIMEBase
 from email import encoders
 
-import pandas as pd
 from program import parameters as params
 
 
@@ -153,7 +150,7 @@ class EmailWriter:
             with open(filename) as the_file_type:
                 attachment = MIMEText(the_file_type.read(), _subtype=subtype)
         elif maintype == "image":
-            with open(filename, "rb") as the_file_type
+            with open(filename, "rb") as the_file_type:
                 attachment = MIMEImage(the_file_type.read(), _subtype=subtype)
         elif maintype == "audio":
             with open(filename, "rb") as the_file_type:
@@ -167,11 +164,16 @@ class EmailWriter:
         attachment.add_header('Content-Disposition', 'attachment', filename=file_name[0])
         return attachment
 
-    def email_processing(self, mailing_list):
-        print('Email Number: Email To | CC (Can be blank) | Subject | Body | Attachment path with Extension')
-        # for each_element in range(len(mailing_list)):
-        #     self.email_fill_in(sender, server, signature, mailinglist[each_element])
-        #     print('The following email was sent:')
-        #     print('Email #'+str(each_element+1)+': '+'|'.join(map(str,mailinglist[each_element])))
-        #     # Utilize the join and map iterable for list -> str per concat
+    def email_processing(self, mailing_list=None):
 
+        if mailing_list is None and self._recipients.get_pandas() is None:
+            print('Cannot send an email when there is nothing to send.')
+            return
+
+        sender, signature = self.email_sender_details()
+        print('Email Number: Email To | CC (Can be blank) | Subject | Body | Attachment path with Extension')
+        for each_element in range(len(mailing_list)):
+            self.email_fill_in(sender, signature, mailing_list[each_element])
+            print('The following email was sent:')
+            print('Email #'+str(each_element+1)+': '+'|'.join(map(str, mailing_list[each_element])))
+            # Utilize the join and map iterable for list -> str per concat
