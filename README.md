@@ -8,11 +8,11 @@ Python >=3.7.x
 ```
 
 ## Getting Started
-Two files are required: **Sender** and **Recipient**, they can be any file extension.  
+Two files are required: **Sender** and **Recipient**. These can be any file extension.  
 - *Currently, only CSV and Excel (.csv, .xlsx) are supported.*  
 
 ### Important
-Please use the provided headers of the CSV and Excel files as guidance.
+Please use the headers shown under the **Data File Structure** section as guidance.
 
 CSV File:
 * Will only read and process the second row. 
@@ -49,7 +49,7 @@ Note that you can set your password with the following if you do not want to use
 
 To addresses | CC addresses | Subject | Body | Attachments
 ------------ | ------------ | ------- | ---- | -----------
-Required <li>Separated by commas</li> | Optional <li>Separated by commas</li> | Optional | Optional <li>Use "\n" for new lines</li> <li>Must be plain text</li> <li> See parameters.py for in-text customizations such as highlighting</li> | Optional <li>Separated by commas</li> 
+Required <li>Separated by commas</li> | Optional <li>Separated by commas</li> | Optional | Optional <li>Use "\n" for new lines</li> <li>Must be plain text</li> <li> See parameters.py for in-text customizations such as highlighting</li> | Optional <li>Separated by commas</li> <li>Full file paths must be provided.</li>
 
 ---
 
