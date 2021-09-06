@@ -64,6 +64,7 @@ class EmailWriter:
         if 'email' in kwargs.keys():
             # If the at symbol is not found, raise an exception
             if kwargs['email'].find('@') == -1:
+                print('Invalid email on the email column.')
                 raise Exception
         else:  # Invalid call, unavailable in the keyword argument dictionary
             raise Exception
@@ -139,7 +140,6 @@ class EmailWriter:
         Credit below in reference to the following StackOverflow response.
         https://stackoverflow.com/questions/23171140/how-do-i-send-an-email-with-a-csv-attachment-using-python
         """
-
         ctype, encoding = mimetypes.guess_type(filename)
         if ctype is None or encoding is not None:
             ctype = "application/octet-stream"
@@ -169,6 +169,8 @@ class EmailWriter:
         if mailing_list is None and self._recipients.get_pandas() is None:
             print('Cannot send an email when there is nothing to send.')
             return
+        elif mailing_list is None:
+            mailing_list = self._recipients.get_pandas()
 
         sender, signature = self.email_sender_details()
         print('Email Number: Email To | CC (Can be blank) | Subject | Body | Attachment path with Extension')

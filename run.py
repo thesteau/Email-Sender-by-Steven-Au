@@ -29,13 +29,12 @@ def main():
 
         # Email sending
         emailing = ew.EmailWriter(sender, recipients)
-        while True:
-            try:
-                sender, signature = emailing.email_sender_details()
-            except:
-                sender.data_read()
-                continue
 
+        try:
+            emailing.email_processing()
+        except:
+            print('Restarting the program....')
+            continue
 
         # Program closure
         print()
