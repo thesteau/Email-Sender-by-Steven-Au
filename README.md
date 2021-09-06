@@ -24,6 +24,8 @@ Excel File:
 
 *Full file paths are intended to be used for both inputs and attachment referencing.*
 
+---
+
 ### Data File Structure
 
 ***Note***: Excel files have an additional requirement of entering the sheet name (tab name).
@@ -55,6 +57,8 @@ Required <li>Separated by commas</li> | Optional <li>Separated by commas</li> | 
 2. Import the requested ***Recipient*** data file path with elements corresponding to the **Data File Structure**
 3. Import the requested ***Sender*** data file path with elements corresponding to the **Data File Structure**
 4. Emails sent will be displayed on the terminal.
+
+---
 
 ## Port Configurations
 The encryption used in this program is TLS and ***not*** SSL 
