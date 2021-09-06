@@ -49,7 +49,7 @@ Note that you can set your password with the following if you do not want to use
 
 To addresses | CC addresses | Subject | Body | Attachments
 ------------ | ------------ | ------- | ---- | -----------
-Required <li>Separated by commas</li> | Optional <li>Separated by commas</li> | Optional | Optional <li>Use "\n" for new lines</li> <li>Must be plain text</li> <li> See parameters.py for in-text customizations such as highlighting</li> | Optional <li>Separated by commas</li> <li>Full file paths must be provided.</li>
+Required <li>Separated by commas</li> | Optional <li>Separated by commas</li> | Optional | Optional <li>Use "\n" for new lines</li> <li>Must be plain text</li> <li> See parameters.py for in-text customizations such as highlighting</li> | Optional <li>Separated by commas</li> <li>Full file path must be provided.</li>
 
 ---
 
