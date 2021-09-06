@@ -16,7 +16,7 @@ import pandas as pd
 class EmailWriter:
 
     def __init__(self):
-        self.the_word = 'nothing here'
+        self._the_word = 'nothing here'
 
 
 
