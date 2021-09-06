@@ -1,5 +1,5 @@
 # Reads and converts the data file into a pandas dataframe for use with the mailing.
-# Note xlrd >= 1.0.0 must be installed for Excel processing.
+# Note openpyxl must be installed for Excel processing.
 import os
 
 import pandas as pd
