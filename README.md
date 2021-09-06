@@ -1,5 +1,5 @@
 # Email-Sender-by-Steven-Au
-! To run this program accordingly - run.py
+Automatically send bulk emails based on data elements for both the Sender and Recipient(s) using data files.
 
 # Motivation
 To have a simplified way to send bulk emails via elements stored in a CSV file and an Excel file. 
@@ -12,7 +12,8 @@ pandas
 openpyxl
 ```
 
-# Files
+# Getting Started
+### Files
 Two files are required, they can be any file extension.  
 **Note**: Excel files have an additional requirement of entering the sheet name (tab name).
 ```
@@ -22,7 +23,7 @@ Two files are required, they can be any file extension.
 **Excel** - Contains the To addresses, CC addresses, Subject, Body, and Attachments. Multiple *TO, CC, or Attachments* are all read seperately by a ***COMMA (",")***.
 ```
 
-# Procedure
+### Procedure
 ```
 #1. Launch program - import requested Excel file path with elements containing the following values: To_email, CC_email, Email_subject, Email_body, and Email_attachments
 
