@@ -81,7 +81,7 @@ class ReadMailing:
     def csv_to_df(self):
         return 1
 
-    # Further file types to dataframes can be added below.
+    # Further file types to dataframe methods can be added here.
 
 
 
