@@ -42,7 +42,8 @@ Note that you can set your password with the following if you do not want to use
 >>> email_writer.EmailWriter().set_pass('Your Password')
 ```
 
-#####Recipient Data File
+#####Recipient Data File  
+
 To addresses | CC addresses | Subject | Body | Attachments
 ------------ | ------------ | ------- | ---- | -----------
 Required <li>Separated by commas</li> | Optional <li>Separated by commas</li> | Optional | Optional <li>Use "\n" for new lines</li> <li>Must be plain text</li> <li> See parameters.py for in-text customizations such as highlighting</li> | Optional <li>Separated by commas</li> 
@@ -69,7 +70,7 @@ Otherwise, SSL is simply the following:
 
 Where service and port are your smtp service and port used.
 
-## Reference - 
+## Reference
 *Only for the Sender file*
 >**Port** - *587*
 
