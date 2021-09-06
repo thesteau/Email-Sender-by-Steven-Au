@@ -1,5 +1,5 @@
-# Email-Sender-by-Steven-Au-Python-3.7
-! To run this program accordingly - Run_This_ Email_Sender_Program.py
+# Email-Sender-by-Steven-Au
+! To run this program accordingly - run.py
 
 # Motivation
 To have a simplified way to send bulk emails via elements stored in a CSV file and an Excel file. 
@@ -52,9 +52,8 @@ The program will also need the exact Excel File Sheet name you are reading from.
 
 
 # External Modules to Install
-* Pandas (To read both Excel and CSV)
+* pandas (To read both Excel and CSV)
 * xlrd
-* pyautogui
 
 
 
