@@ -9,8 +9,9 @@ Python >=3.7.x
 
 ## Getting Started
 Two files are required, they can be any file extension.  
-*Currently, only CSV and Excel .xlsx are supported.*  
-## Important
+- *Currently, only CSV and Excel (.csv, .xlsx) are supported.*  
+
+### Important
 Please use the provided headers of the CSV and Excel files as guidance.
 
 CSV File:
