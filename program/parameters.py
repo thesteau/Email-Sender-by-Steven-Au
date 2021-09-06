@@ -61,4 +61,3 @@ class Parameters:
         print("SMTP server | SMTP Port | Your_Email | Your_Password "
               "(Leave blank if not needed) | optional: Signature path in .html format.")
         print('Please ask your IT department if needed.')
-

@@ -1,5 +1,4 @@
 # Reads and converts the data file into a pandas dataframe for use with the mailing.
-# Note openpyxl must be installed for Excel processing.
 import os
 
 import pandas as pd
