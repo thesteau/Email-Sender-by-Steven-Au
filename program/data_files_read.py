@@ -1,4 +1,4 @@
-# Reads the data file and converts the file to a pandas dataframe for use with the mailing.
+# Reads and converts the data file into a pandas dataframe for use with the mailing.
 import os
 
 import pandas as pd
