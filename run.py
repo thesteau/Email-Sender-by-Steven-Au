@@ -1,6 +1,8 @@
 # Author: Steven Au
 # Purpose: Easily use elements from a CSV and an Excel files to automatically send bulk emails.
 # import files here
+from program import data_files_read as dfr
+from program import email_writer as ew
 
 def main():
     """ Email program primary runner."""
