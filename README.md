@@ -26,28 +26,34 @@ Excel File:
 
 ### Data File Structure
 
-**Note**: Excel files have an additional requirement of entering the sheet name (tab name).
-```
-**CSV** - contains the service, port, your login email, your password, and signature only as a HTML.
-- All one needs to do to swap services is to modify the CSV file if the data in the Excel file remains the same.
+***Note***: Excel files have an additional requirement of entering the sheet name (tab name).
 
-**Excel** - Contains the To addresses, CC addresses, Subject, Body, and Attachments. Multiple *TO, CC, or Attachments* are all read seperately by a ***COMMA (",")***.
+#####Sender Data File
+
+Service | Port | Your Login Email | Your Password | Signature
+------- | ---- | ---------------- | ------------- | ---------
+Required | Required | Required | Optional | Optional  <li>(Must be provided with a path to an .html file)</li>
+- The password is optional depending on your SMTP server. 
+  - If omitted, the program will attempt to log in without your password/App password.
+- Your signature must be saved in a .HTML format
+
+Note that you can set your password with the following if you do not want to use the file:
+```python
+>>> email_writer.EmailWriter().set_pass('Your Password')
 ```
+
+#####Recipient Data File
+To addresses | CC addresses | Subject | Body | Attachments
+------------ | ------------ | ------- | ---- | -----------
+Required <li>Separated by commas</li> | Optional <li>Separated by commas</li> | Optional | Optional <li>Use "\n" for new lines</li> <li>Must be plain text</li> <li> See parameters.py for in-text customizations such as highlighting</li> | Optional <li>Separated by commas</li> 
+
 
 ### Procedure
 
-1. Launch program - import requested Excel file path with elements containing the following values: To_email, CC_email, Email_subject, Email_body, and Email_attachments
-
-2. Choice: Automatic or Manual
-
-3.   
-    a. If manual, then the program will open up Google Chrome and create email drafts
-    b. If automatic, then the program will request for a CSV file path with the following values: 
-SMTP_server_service (Such as smtp.google.com), Port_number, Your_email, Your_password, Your_signature
-
-The password is optional depending on your SMTP server. If omitted, the program will attempt to log in without your password/App password.
-Your signature must be saved in a .HTML format
-
+1. Launch program from *run.py*
+2. Import the requested ***Recipient*** data file path with elements corresponding to the **Data File Structure**
+3. Import the requested ***Sender*** data file path with elements corresponding to the **Data File Structure**
+4. Emails sent will be displayed on the terminal.
 
 ## Port Configurations
 The encryption used in this program is TLS and ***not*** SSL 
@@ -82,6 +88,8 @@ Where service and port are your smtp service and port used.
 https://support.google.com/a/answer/176600?hl=en
 
 ---
+
+
 ## Credits
 *Code citations are available in-line.*
 
