@@ -142,7 +142,7 @@ class EmailWriter:
             if cc_email != self._the_word or cc_email.find('@') != -1:
                 msg['Cc'] = cc_email
 
-            msg.attach(MIMEText(body, 'html'))
+            msg.attach(MIMEText(body, 'plain'))
 
             try:
                 with open(signa, 'r', encoding='utf-8') as html_sig:

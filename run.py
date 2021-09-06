@@ -43,8 +43,10 @@ def main():
 
         if active_runner == 'y':
             print('Restarting now....')
+            print()
         else:
             print('Aborting now.....')
+            input()
 
 
 if __name__ == "__main__":
