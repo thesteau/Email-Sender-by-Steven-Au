@@ -89,7 +89,7 @@ https://support.google.com/a/answer/176600?hl=en
 
 ### Procedure
 
-1. Launch program from *run.py*
+1. Launch program from ***run.py***.
 2. Import the requested ***Recipient*** data file path with elements corresponding to the **Data File Structure**
 3. Import the requested ***Sender*** data file path with elements corresponding to the **Data File Structure**
 4. Emails sent will be displayed on the terminal.
