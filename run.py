@@ -46,8 +46,6 @@ def main():
         else:
             print('Aborting now.....')
 
-def writer_processing():
-    pass
 
 if __name__ == "__main__":
     main()
