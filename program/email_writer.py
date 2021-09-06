@@ -1,6 +1,4 @@
 # Writes and send the emails
-import pandas as pd
-
 import smtplib
 import time
 import mimetypes
@@ -11,6 +9,8 @@ from email.mime.audio import MIMEAudio
 from email.mime.image import MIMEImage
 from email.mime.base import MIMEBase
 from email import encoders
+
+import pandas as pd
 
 
 class EmailWriter:
