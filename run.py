@@ -29,6 +29,8 @@ def main():
 
         print()
         restart = input('Press any key to send emails, otherwise, enter "a" to restart.').lower()
+        print()
+        print('----')
         if restart == 'a':
             continue
 

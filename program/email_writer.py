@@ -105,6 +105,8 @@ class EmailWriter:
 
     def email_fill_in(self, from_user, signature, recipient_dat, server=None):
         """ Writes the email for the user.
+                The email body will be in plaintext. Please use \n for new lines and the reference codes on the
+                parameters file to customize the text instead.
             Inputs:
                 from_user = the current user
                 signature = the signature html block
