@@ -51,17 +51,9 @@ To addresses | CC addresses | Subject | Body | Attachments
 ------------ | ------------ | ------- | ---- | -----------
 Required <li>Separated by commas</li> | Optional <li>Separated by commas</li> | Optional | Optional <li>Use "\n" for new lines</li> <li>Must be plain text</li> <li> See parameters.py for in-text customizations such as highlighting</li> | Optional <li>Separated by commas</li> 
 
-
-### Procedure
-
-1. Launch program from *run.py*
-2. Import the requested ***Recipient*** data file path with elements corresponding to the **Data File Structure**
-3. Import the requested ***Sender*** data file path with elements corresponding to the **Data File Structure**
-4. Emails sent will be displayed on the terminal.
-
 ---
 
-## Port Configurations
+### Port Configurations
 The encryption used in this program is TLS and ***not*** SSL 
 
 So the Python code uses the following:
@@ -75,7 +67,9 @@ Otherwise, SSL is simply the following:
 
 Where service and port are your smtp service and port used.
 
-## Reference
+---
+
+### Reference
 *Only for the Sender file*
 >**Port** - *587*
 
@@ -95,6 +89,14 @@ https://support.google.com/a/answer/176600?hl=en
 
 ---
 
+### Procedure
+
+1. Launch program from *run.py*
+2. Import the requested ***Recipient*** data file path with elements corresponding to the **Data File Structure**
+3. Import the requested ***Sender*** data file path with elements corresponding to the **Data File Structure**
+4. Emails sent will be displayed on the terminal.
+
+---
 
 ## Credits
 *Code citations are available in-line.*
