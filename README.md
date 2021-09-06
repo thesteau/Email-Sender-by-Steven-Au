@@ -29,6 +29,8 @@ Excel File:
 
 ### Data File Structure
 
+*Sample **Sender** and **Recipient** header files are provided under the **dataSample** folder.*
+
 ##### Sender Data File
 
 Service | Port | Your Login Email | Your Password | Signature
