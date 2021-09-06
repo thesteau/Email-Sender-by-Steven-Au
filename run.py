@@ -1,19 +1,31 @@
 # Author: Steven Au
 # Purpose: Easily use elements from a CSV and an Excel files to automatically send bulk emails.
 # import files here
+from program import parameters as params
 from program import data_files_read as dfr
 from program import email_writer as ew
 
 def main():
     """ Email program primary runner."""
-    print('Welcome to the automatic email program by Steven Au!\n')
-    print('Please have the following files prepared: \n1. Your emailing credentials\n2. The recipient file.')
-    print('Both files must have the details filled in accordingly per the headers.\n')
-    input('Press any key to proceed...')
+    p = params.Parameters()
+    recipients = dfr.ReadMailing()
+    sender = dfr.ReadMailing()
+
+    p.recitals_program_start()
 
     active_runner = 'y'
     while active_runner == 'y':
         # email program run
+
+        p.recitals_recipients()
+        recipients.data_read()
+        print('----')
+        p.recitals_sender()
+        sender.data_read()
+
+        print(recipients.show_pandas())
+        print('setgrdgrtfghg')
+        print(sender.show_pandas())
 
         print()
         print('Do you want to send further emails?')  # Assumes both the credentials and recipient files will differ.

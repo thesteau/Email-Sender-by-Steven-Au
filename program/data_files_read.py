@@ -138,7 +138,7 @@ class ReadMailing:
         print('TSV file loaded successfully!')
         return pd.read_csv(file_path, sep='\t', skiprows=skip_rows)
 
-    def process_file(self):
+    def data_read(self):
         """ Processes the data with the vital methods as a standalone."""
         self.file_read()
         self.process_data()
@@ -146,5 +146,5 @@ class ReadMailing:
 
 if __name__ == "__main__":
     rm = ReadMailing()
-    rm.process_file()
+    rm.data_read()
     rm.show_pandas()
