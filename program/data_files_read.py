@@ -97,7 +97,7 @@ class ReadMailing:
             print('Please add the corresponding method for this file extension.')
             return
 
-        df.fillna(self._the_word)
+        df = df.fillna(self._the_word)
         return df.values.tolist()
 
     # Individual branch processing for the data_to_df method.
@@ -147,4 +147,4 @@ class ReadMailing:
 if __name__ == "__main__":
     rm = ReadMailing()
     rm.data_read()
-    rm.show_pandas()
+    print(rm.show_pandas())

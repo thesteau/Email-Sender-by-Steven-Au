@@ -5,28 +5,31 @@ from program import parameters as params
 from program import data_files_read as dfr
 from program import email_writer as ew
 
+
 def main():
     """ Email program primary runner."""
     p = params.Parameters()
     recipients = dfr.ReadMailing()
     sender = dfr.ReadMailing()
 
+    # Introduce user to the program
     p.recitals_program_start()
 
+    # Email data entry and sending
     active_runner = 'y'
     while active_runner == 'y':
-        # email program run
 
+        # Data entry read
         p.recitals_recipients()
         recipients.data_read()
         print('----')
         p.recitals_sender()
-        sender.data_read()
-
-        print(recipients.show_pandas())
-        print('setgrdgrtfghg')
+        sender.data_read()  # Note: Cannot assume that the recipient file contains sender data if using an Excel file.
+        print('----')
+        # Email sending
         print(sender.show_pandas())
 
+        # Program closure
         print()
         print('Do you want to send further emails?')  # Assumes both the credentials and recipient files will differ.
         active_runner = input("Input [y]: yes to send further emails, else any other key for no.\n> ").lower()

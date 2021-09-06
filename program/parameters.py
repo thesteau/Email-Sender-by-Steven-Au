@@ -4,7 +4,7 @@ class Parameters:
 
     def __init__(self):
         self._target_value = 5
-        self._the_word = 'nothing here'
+        self._the_word = '~&^~nothing here~$%~&'
         self._valid_extensions = [
             '.csv',
             '.xlsx'
@@ -26,7 +26,7 @@ class Parameters:
         print('Both files must have the details filled in accordingly per the headers.\n')
         print('Please see the ReadMe for details.')
         input('Press any key to proceed...')
-        print('----')
+        print()
 
     def recitals_recipients(self):
         """ Instructions displayed to the user per the recipients file."""
