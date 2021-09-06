@@ -28,7 +28,13 @@ def main():
         print('----')
 
         # Email sending
-        emailing = ew.EmailWriter(sender.get_pandas(), recipients.get_pandas())
+        emailing = ew.EmailWriter(sender, recipients)
+        while True:
+            try:
+                sender, signature = emailing.email_sender_details()
+            except:
+                sender.data_read()
+                continue
 
 
         # Program closure
@@ -41,6 +47,8 @@ def main():
         else:
             print('Aborting now.....')
 
+def writer_processing():
+    pass
 
 if __name__ == "__main__":
     main()
