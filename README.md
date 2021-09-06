@@ -21,15 +21,13 @@ CSV File:
 Excel File:
 * Will only read and process from the second row onwards.
 * The first row, header, will be ignored.
-* The **sheet name** must be provided when prompted.
+* The **sheet name** (*also known as the **tab name**.*) must be provided when prompted.
 
 *Full file paths are intended to be used for both inputs and attachment referencing.*
 
 ---
 
 ### Data File Structure
-
-***Note***: Excel files have an additional requirement of entering the sheet name (tab name).
 
 ##### Sender Data File
 
