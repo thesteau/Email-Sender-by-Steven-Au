@@ -35,7 +35,7 @@ Excel File:
 
 Service | Port | Your Login Email | Your Password | Signature
 ------- | ---- | ---------------- | ------------- | ---------
-Required | Required | Required | Optional <li>Depends on the SMTP server</li><li>If omitted, the program will attempt to log in without your password/App password.</li>| Optional  <li>***Must*** be provided with a full path to an .html file</li>
+Required | Required | Required | Optional <li>Depends on the SMTP server</li><li>If omitted, the program will attempt to log in without your password/App password.</li>| Optional  <li>A full file path to the .html file ***must*** be provided</li>
 
 Note that you can set your password with the following if you do not want to use the file:
 ```python
