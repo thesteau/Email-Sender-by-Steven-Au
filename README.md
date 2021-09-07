@@ -1,7 +1,7 @@
 # Bulk Email Sender by Steven-Au
 Automatically send bulk emails based on data elements for both the Sender and Recipient(s) using data files.
   
-- The **Recipient** file can be customized and scaled to the number to email receivers and file attachments with a personalized/independent body message each.  
+- The **Recipient** file can be customized and scaled to the number to email recipients and file attachments. Each message can also contain a personalized/independent body message.  
 - Please see the **Data File Structure** section for more details regarding how the data is to be organized.
 
 ## Requirements
