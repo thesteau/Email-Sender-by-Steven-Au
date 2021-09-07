@@ -21,7 +21,7 @@ CSV File:
 Excel File:
 * Will only read and process from the second row onwards.
 * The first row, header, will be ignored.
-* The **sheet name** (*also known as the **tab name**.*) must be provided when prompted.
+* The **sheet name** (*also known as the* ***tab name***) must be provided when prompted.
 
 *Full file paths are intended to be used for both inputs and attachment referencing.*
 
@@ -35,7 +35,7 @@ Excel File:
 
 Service | Port | Your Login Email | Your Password | Signature
 ------- | ---- | ---------------- | ------------- | ---------
-Required | Required | Required | Optional <li>Depends on the SMTP server</li><li>If omitted, the program will attempt to log in without your password/App password.</li>| Optional  <li>***Must*** be provided with a path to an .html file</li>
+Required | Required | Required | Optional <li>Depends on the SMTP server</li><li>If omitted, the program will attempt to log in without your password/App password.</li>| Optional  <li>***Must*** be provided with a full path to an .html file</li>
 
 Note that you can set your password with the following if you do not want to use the file:
 ```python
