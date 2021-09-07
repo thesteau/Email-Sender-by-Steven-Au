@@ -120,7 +120,8 @@ Email-Sender-by-Steven-Au/
 
 ## Motivation
 This project came to be because there was an existing template spreadsheet file that had a reference to all recipients at one of my workplaces. Email subject, body, and attachments were also processed one by one. Rather than spending extra time individually referencing and sending the emails on a monthly basis, why not have the recipient file, where we can also have a reference with the full file paths, "write" our emails for us?  
-This project later integrated the sender file and technical email processing together into one script based program. Only in 2021, the script was fully refactored into the Object ORiented Programming paradigm.
+  
+This project later integrated the sender file and technical email processing together into one script based program. Only in 2021, the script was fully refactored into the Object Oriented Programming paradigm ever since inception.
 
 ## Credits
 *Code citations are available in-line.*
