@@ -70,6 +70,7 @@ Where service and port are your smtp service and port used.
 *Only for the Sender file*
 >**Port** - *587*
 
+*Services*
 >**Outlook** - 
 *smtp-mail.outlook.com*
 
