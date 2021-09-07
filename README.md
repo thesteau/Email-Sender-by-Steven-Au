@@ -11,7 +11,7 @@ pandas 1.3.2
 ## Getting Started
 Two files are required: **Sender** and **Recipient**.  
 - These two files can be any file extension.  
-  - *Currently, the following file types are supported as a Data File:
+  - Currently, the following file types are supported as a Data File:
     - .csv (CSV)
     - .xlsx (Excel)
 
@@ -102,18 +102,19 @@ https://support.google.com/a/answer/176600?hl=en
 1. Launch the program via ***run.py***.
 2. Import the requested ***Recipient*** data file path with elements corresponding to the header from **Data File Structure**
 3. Import the requested ***Sender*** data file path with elements corresponding to the header from **Data File Structure**
-4. Once confirmed, emails that are sent will be displayed on the terminal.
+4. Once confirmed, each sent email will be displayed on the terminal.
 
 ---
 
 ## Program Structure
 ```graphql
-run.py                       # Main program execution
-  └─ ./program
-     ├─ __init__.py
-     ├─ data_files_read.py   # Reads and exports data files into a python list via pandas.
-     ├─ email_writer.py      # Log into service, Write(s) and send(s) emails based on list elements.
-     └─ parameters.py        # Program reference data and functions through composition.
+Email-Sender-by-Steven-Au/
+├─ run.py                   # Main program execution
+└─ program/
+    ├─ __init__.py
+    ├─ data_files_read.py   # Reads and exports data files into a python list via pandas.
+    ├─ email_writer.py      # Log into service, Write(s) and send(s) emails based on list elements.
+    └─ parameters.py        # Program reference data and functions through composition.
 ```
 
 ## Credits
