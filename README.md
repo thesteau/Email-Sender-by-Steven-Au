@@ -11,7 +11,7 @@ pandas 1.3.2
 ## Getting Started
 Two files are required: **Sender** and **Recipient**.  
 - These two files can be any file extension.  
-  - *Currently, the following file types are supported as the Data File:
+  - *Currently, the following file types are supported as a Data File:
     - .csv (CSV)
     - .xlsx (Excel)
 
