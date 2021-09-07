@@ -4,7 +4,6 @@ Automatically send bulk emails based on data elements for both the Sender and Re
 ## Requirements
 ```
 pandas 1.3.2 (Due to read_excel compatibility)
-Python >=3.7.x
 ```
 
 ## Getting Started
