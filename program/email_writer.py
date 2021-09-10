@@ -183,7 +183,7 @@ class EmailWriter:
 
         """
         Credit below in reference to the following StackOverflow response.
-        https://stackoverflow.com/questions/23171140/how-do-i-send-an-email-with-a-csv-attachment-using-python
+        https://docs.python.org/3.4/library/email-examples.html
         """
         ctype, encoding = mimetypes.guess_type(filename)
         if ctype is None or encoding is not None:
